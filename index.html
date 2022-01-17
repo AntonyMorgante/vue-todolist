@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Impegni di oggi</h1>
+        <div class="add-bar">
+            <input type="text" v-model="appointment" @keyup.enter="addtoschedule" placeholder="Descrivi l'impegno da inserire">
+            <button @click="addtoschedule">Aggiungi</button>
+        </div>
+        <ul>
+            <li v-for="(element,counter) in schedule">
+                <div @click="check(counter)" class="appointment" :class="isdone(counter)">{{element.name}}</div>
+                <span @click="remove(counter)" class="remove-button">X</span>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="myscript.js"></script>
+</body>
+</html>
